@@ -1,0 +1,19 @@
+package lt.gecius.test_dagger2;
+
+import android.app.Application;
+
+public class DemoApplication extends Application {
+	private ApplicationComponent mComponent;
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		mComponent = DaggerApplicationComponent.builder()
+				.egisApplicationModule(new EgisApplicationModule(this))
+				.build();
+	}
+
+	public ApplicationComponent getComponent() {
+		return mComponent;
+	}
+}
