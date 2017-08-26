@@ -13,7 +13,7 @@ public class MainActivity extends ActionBarActivity {
 
 
 //	@Inject SharedPreferences mSharedPrefs;
-	@Inject String tesString;
+	@Inject String injectedString;
 
 
 	@Override
@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
 
 //		mSharedPrefs.edit().putString("status", "success!").apply();
 
-		testString.setText(tesString);
+		testString.setText(injectedString);
 
 	}
 

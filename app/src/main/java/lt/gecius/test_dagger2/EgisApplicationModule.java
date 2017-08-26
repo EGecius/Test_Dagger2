@@ -10,22 +10,23 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class EgisApplicationModule {
-	private Application mApp;
+class EgisApplicationModule {
 
-	public EgisApplicationModule(Application app) {
-		mApp = app;
+	private Application application;
+
+	EgisApplicationModule(Application application) {
+		this.application = application;
 	}
 
 	@Provides
 	@Singleton
 	SharedPreferences provideSharedPrefs() {
-		return PreferenceManager.getDefaultSharedPreferences(mApp);
+		return PreferenceManager.getDefaultSharedPreferences(application);
 	}
 
 	@Provides
 	@Singleton
 	String providesString() {
-		return "EgisTest";
+		return "Injected string";
 	}
 }
