@@ -9,7 +9,7 @@ public class DemoApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		component = DaggerApplicationComponent.builder()
-				.egisApplicationModule(new ApplicationModule(this))
+				.applicationModule(new ApplicationModule(this))
 				.build();
 	}
 
