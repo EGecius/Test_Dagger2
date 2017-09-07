@@ -11,7 +11,6 @@ import javax.inject.Inject;
 
 public class MainActivity extends ActionBarActivity {
 
-
 //	@Inject SharedPreferences mSharedPrefs;
 	@Inject String injectedString;
 
@@ -21,14 +20,13 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		TextView testString = (TextView) findViewById(R.id.test_string);
+		TextView textView = (TextView) findViewById(R.id.test_string);
 
 		((DemoApplication) getApplication()).getComponent().inject(this);
 
 //		mSharedPrefs.edit().putString("status", "success!").apply();
 
-		testString.setText(injectedString);
-
+		textView.setText(injectedString);
 	}
 
 	@Override

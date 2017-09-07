@@ -10,11 +10,11 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-class EgisApplicationModule {
+class ApplicationModule {
 
 	private Application application;
 
-	EgisApplicationModule(Application application) {
+	ApplicationModule(Application application) {
 		this.application = application;
 	}
 
