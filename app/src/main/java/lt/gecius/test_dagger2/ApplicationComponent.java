@@ -1,5 +1,7 @@
 package lt.gecius.test_dagger2;
 
+import android.content.SharedPreferences;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -9,4 +11,6 @@ import dagger.Component;
 public interface ApplicationComponent {
 	void inject(DemoApplication app);
 	void inject(MainActivity activity);
+
+	SharedPreferences getSharedPreferences();
 }
