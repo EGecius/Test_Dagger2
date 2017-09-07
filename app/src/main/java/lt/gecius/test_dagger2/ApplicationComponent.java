@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-@Singleton
+@Singleton  // Constraints this component to one-per-application or unscoped bindings.
 @Component (modules = {ApplicationModule.class})
 public interface ApplicationComponent {
 	void inject(DemoApplication app);
