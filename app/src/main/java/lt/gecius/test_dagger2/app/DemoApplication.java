@@ -1,6 +1,7 @@
-package lt.gecius.test_dagger2;
+package lt.gecius.test_dagger2.app;
 
 import android.app.Application;
+
 
 public class DemoApplication extends Application {
 	private ApplicationComponent component;

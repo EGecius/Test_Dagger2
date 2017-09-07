@@ -1,4 +1,4 @@
-package lt.gecius.test_dagger2;
+package lt.gecius.test_dagger2.mainactivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import javax.inject.Inject;
+
+import lt.gecius.test_dagger2.R;
+import lt.gecius.test_dagger2.app.ApplicationComponent;
+import lt.gecius.test_dagger2.app.DemoApplication;
 
 
 public class MainActivity extends ActionBarActivity {
