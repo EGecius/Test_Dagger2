@@ -15,16 +15,17 @@ import lt.gecius.test_dagger2.R;
 import lt.gecius.test_dagger2.app.ApplicationComponent;
 import lt.gecius.test_dagger2.app.ApplicationModule;
 import lt.gecius.test_dagger2.app.DemoApplication;
+import lt.gecius.test_dagger2.app.Message;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    @Named(ApplicationModule.APP_STRING)
-	@Inject String appString;
+    @Named(ApplicationModule.APP_MSG)
+	@Inject Message appMessage;
 
 
-    @Named(ActivityModule.ACTIVITY_STRING)
-    @Inject String activityString;
+    @Named(ActivityModule.ACTIVITY_MSG)
+    @Inject Message activityMessage;
 
     private ActivityComponent mActivityComponent;
     private TextView mTextViewAppStringName;
@@ -73,14 +74,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setTextViews() {
-        mTextViewAppStringName.setText(appString);
+        mTextViewAppStringName.setText(appMessage.stringMsg);
 
-        String hashCodeAppString = String.valueOf(appString.hashCode());
+        String hashCodeAppString = String.valueOf(appMessage.hashCode());
         mTextViewAppStringHashcode.setText(hashCodeAppString);
 
-        mTextViewActivityStringName.setText(activityString);
+        mTextViewActivityStringName.setText(activityMessage.stringMsg);
 
-        String hashCodeActivityString = String.valueOf(activityString.hashCode());
+        String hashCodeActivityString = String.valueOf(activityMessage.hashCode());
         mTextViewActivityStringHashcode.setText(hashCodeActivityString);
 	}
 

@@ -13,7 +13,7 @@ import dagger.Provides;
 @Module
 public class ApplicationModule {
 
-    public static final String APP_STRING = "app string";
+    public static final String APP_MSG = "APP_MSG";
 
     private Application application;
 
@@ -29,8 +29,8 @@ public class ApplicationModule {
 
 	@Provides
 	@Singleton
-    @Named(APP_STRING)
-	String providesString() {
-		return "Injected string: APP_STRING";
+    @Named(APP_MSG)
+	Message providesString() {
+		return new Message("Injected string: APP_MSG");
 	}
 }
