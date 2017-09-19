@@ -31,7 +31,13 @@ public class MainActivity extends ActionBarActivity {
 		setTextView();
 	}
 
-	private void setTextView() {
+    private void injectDependencies() {
+        ApplicationComponent appComponent = ((DemoApplication) getApplication()).getComponent();
+        ActivityComponent activityComponent = appComponent.plus(new ActivityModule(this));
+        activityComponent.inject(this);
+    }
+
+    private void setTextView() {
 		TextView textView = (TextView) findViewById(R.id.test_string);
 		textView.setText(injectedString);
 	}
@@ -41,11 +47,6 @@ public class MainActivity extends ActionBarActivity {
 		ApplicationComponent component = ((DemoApplication) getApplication()).getComponent();
 		//this show how instantiated objects can be directly accessed from component
 		SharedPreferences sharedPreferences = component.getSharedPreferences();
-	}
-
-	private void injectDependencies() {
-		ApplicationComponent component = ((DemoApplication) getApplication()).getComponent();
-		component.inject(this);
 	}
 
 	@Override
