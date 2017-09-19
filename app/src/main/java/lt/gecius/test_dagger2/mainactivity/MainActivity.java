@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-        findViews();
+        findTextViews();
 
         setupInjectButton();
 
@@ -47,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
 		setTextViews();
 	}
 
-    private void findViews() {
+    private void findTextViews() {
         mTextViewAppStringName = (TextView) findViewById(R.id.application_component_string_name);
         mTextViewAppStringHashcode = (TextView) findViewById(R.id.application_component_string_hashcode);
         mTextViewActivityStringName = (TextView) findViewById(R.id.activity_component_string_name);
@@ -60,6 +60,15 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(final View v) {
                 injectDependencies();
                 setTextViews();
+            }
+        });
+
+        //if a new scope is created, new instances will be created even for dependencies
+        // annotated with a custom scope
+        findViewById(R.id.reset_component_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                initComponent();
             }
         });
     }
