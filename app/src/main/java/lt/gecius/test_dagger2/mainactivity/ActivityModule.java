@@ -24,6 +24,9 @@ public class ActivityModule {
     }
 
     @Provides
+    // adding this custom @ActivityScope means that same instance will be provided when asked
+    // multiple times to be injected from same Component
+    @ActivityScope
     @Named(ACTIVITY_MSG)
     Message providesString() {
         return new Message("Injected string: ACTIVITY_MSG");
