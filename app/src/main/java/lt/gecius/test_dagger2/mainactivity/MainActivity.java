@@ -3,61 +3,77 @@ package lt.gecius.test_dagger2.mainactivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import lt.gecius.test_dagger2.R;
 import lt.gecius.test_dagger2.app.ApplicationComponent;
+import lt.gecius.test_dagger2.app.ApplicationModule;
 import lt.gecius.test_dagger2.app.DemoApplication;
 
 
 public class MainActivity extends ActionBarActivity {
 
-//	@Inject SharedPreferences mSharedPrefs;
-	@Inject String injectedString;
+    @Named(ApplicationModule.APP_STRING)
+	@Inject String appString;
 
-	@Override
+
+    @Named(ActivityModule.ACTIVITY_STRING)
+    @Inject String activityString;
+
+    private ActivityComponent mActivityComponent;
+    private TextView mTextViewAppString;
+    private TextView mTextViewActivityString;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+        findViews();
 
         setupInjectButton();
 
+        initComponent();
 		injectDependencies();
 		demoComponentCapabilities();
-//		mSharedPrefs.edit().putString("status", "success!").apply();
-
-		setTextView();
+		setTextViews();
 	}
+
+    private void findViews() {
+        mTextViewAppString = (TextView) findViewById(R.id.application_component_string);
+        mTextViewActivityString = (TextView) findViewById(R.id.activity_component_string);
+    }
 
     private void setupInjectButton() {
         findViewById(R.id.inject_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 injectDependencies();
+                setTextViews();
             }
         });
     }
 
-    private void injectDependencies() {
+    private void initComponent() {
         ApplicationComponent appComponent = ((DemoApplication) getApplication()).getComponent();
-        ActivityComponent activityComponent = appComponent.plus(new ActivityModule(this));
-        activityComponent.inject(this);
+        mActivityComponent = appComponent.plus(new ActivityModule(this));
     }
 
-    private void setTextView() {
-		TextView textView = (TextView) findViewById(R.id.application_component_string);
+    private void injectDependencies() {
+        mActivityComponent.inject(this);
+    }
 
+    private void setTextViews() {
+        String hashCodeAppString = String.valueOf(appString.hashCode());
+        mTextViewAppString.setText(hashCodeAppString);
 
-        String hashCode = String.valueOf(injectedString.hashCode());
-        Log.i("Eg:MainActivity:44", "setTextView injectedString " + hashCode);
-
-		textView.setText(hashCode);
+        String hashCodeActivityString = String.valueOf(activityString.hashCode());
+        mTextViewActivityString.setText(hashCodeActivityString);
 	}
 
 	@SuppressWarnings("unused")
