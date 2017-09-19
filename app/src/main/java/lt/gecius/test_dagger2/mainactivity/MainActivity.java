@@ -3,8 +3,10 @@ package lt.gecius.test_dagger2.mainactivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import javax.inject.Inject;
@@ -24,12 +26,23 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+        setupInjectButton();
+
 		injectDependencies();
 		demoComponentCapabilities();
 //		mSharedPrefs.edit().putString("status", "success!").apply();
 
 		setTextView();
 	}
+
+    private void setupInjectButton() {
+        findViewById(R.id.inject_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                injectDependencies();
+            }
+        });
+    }
 
     private void injectDependencies() {
         ApplicationComponent appComponent = ((DemoApplication) getApplication()).getComponent();
@@ -38,8 +51,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setTextView() {
-		TextView textView = (TextView) findViewById(R.id.test_string);
-		textView.setText(injectedString);
+		TextView textView = (TextView) findViewById(R.id.application_component_string);
+
+
+        String hashCode = String.valueOf(injectedString.hashCode());
+        Log.i("Eg:MainActivity:44", "setTextView injectedString " + hashCode);
+
+		textView.setText(hashCode);
 	}
 
 	@SuppressWarnings("unused")
