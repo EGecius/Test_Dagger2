@@ -27,8 +27,10 @@ public class MainActivity extends ActionBarActivity {
     @Inject String activityString;
 
     private ActivityComponent mActivityComponent;
-    private TextView mTextViewAppString;
-    private TextView mTextViewActivityString;
+    private TextView mTextViewAppStringName;
+    private TextView mTextViewAppStringHashcode;
+    private TextView mTextViewActivityStringName;
+    private TextView mTextViewActivityStringHashcode;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,10 @@ public class MainActivity extends ActionBarActivity {
 	}
 
     private void findViews() {
-        mTextViewAppString = (TextView) findViewById(R.id.application_component_string);
-        mTextViewActivityString = (TextView) findViewById(R.id.activity_component_string);
+        mTextViewAppStringName = (TextView) findViewById(R.id.application_component_string_name);
+        mTextViewAppStringHashcode = (TextView) findViewById(R.id.application_component_string_hashcode);
+        mTextViewActivityStringName = (TextView) findViewById(R.id.activity_component_string_name);
+        mTextViewActivityStringHashcode = (TextView) findViewById(R.id.activity_component_string_hashcode);
     }
 
     private void setupInjectButton() {
@@ -69,11 +73,15 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setTextViews() {
+        mTextViewAppStringName.setText(appString);
+
         String hashCodeAppString = String.valueOf(appString.hashCode());
-        mTextViewAppString.setText(hashCodeAppString);
+        mTextViewAppStringHashcode.setText(hashCodeAppString);
+
+        mTextViewActivityStringName.setText(activityString);
 
         String hashCodeActivityString = String.valueOf(activityString.hashCode());
-        mTextViewActivityString.setText(hashCodeActivityString);
+        mTextViewActivityStringHashcode.setText(hashCodeActivityString);
 	}
 
 	@SuppressWarnings("unused")
