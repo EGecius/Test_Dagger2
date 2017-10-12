@@ -30,7 +30,7 @@ public class ApplicationModule {
 	@Provides
 	@Singleton
     @Named(APP_MSG)
-	Message providesString() {
-		return new Message("Injected string: APP_MSG");
+	Message providesString(MyDependency myDependency) {
+		return new Message("Injected string: APP_MSG", myDependency);
 	}
 }

@@ -6,6 +6,7 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
+import lt.gecius.test_dagger2.app.MyDependency;
 import lt.gecius.test_dagger2.app.Message;
 
 @Module
@@ -29,7 +30,7 @@ public class ActivityModule {
     // multiple times to be injected from same Component
     @ActivityScope
     @Named(ACTIVITY_MSG)
-    Message providesString() {
-        return new Message("Injected string: ACTIVITY_MSG");
+    Message providesString(MyDependency myDependency) {
+        return new Message("Injected string: ACTIVITY_MSG", myDependency);
     }
 }
