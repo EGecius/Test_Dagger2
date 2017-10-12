@@ -33,4 +33,10 @@ public class ApplicationModule {
 	Message providesString(MyDependency myDependency) {
 		return new Message("Injected string: APP_MSG", myDependency);
 	}
+
+    @Provides
+    ProvidesAnnotatedDependency provideProvidesAnnotatedDependency() {
+        return new ProvidesAnnotatedDependency();
+    }
+
 }
