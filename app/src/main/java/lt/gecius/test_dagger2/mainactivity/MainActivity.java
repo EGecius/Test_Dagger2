@@ -1,10 +1,10 @@
 package lt.gecius.test_dagger2.mainactivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,6 +16,7 @@ import lt.gecius.test_dagger2.app.ApplicationComponent;
 import lt.gecius.test_dagger2.app.ApplicationModule;
 import lt.gecius.test_dagger2.app.DemoApplication;
 import lt.gecius.test_dagger2.app.Message;
+import lt.gecius.test_dagger2.services.MyIntentService;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -112,4 +113,14 @@ public class MainActivity extends ActionBarActivity {
 		return true;
 	}
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startIntentService();
+    }
+
+    private void startIntentService() {
+        Intent intent = new Intent(this, MyIntentService.class);
+        startService(intent);
+    }
 }

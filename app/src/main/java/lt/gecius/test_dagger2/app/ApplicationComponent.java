@@ -7,12 +7,15 @@ import javax.inject.Singleton;
 import dagger.Component;
 import lt.gecius.test_dagger2.mainactivity.ActivityComponent;
 import lt.gecius.test_dagger2.mainactivity.ActivityModule;
+import lt.gecius.test_dagger2.services.MyIntentService;
 
 @Singleton  // Constraints this component to one-per-application or unscoped bindings.
 @Component (modules = {ApplicationModule.class})
 public interface ApplicationComponent {
 
     void inject(DemoApplication app);
+
+    void inject(MyIntentService service);
 
 	SharedPreferences getSharedPreferences();
 
