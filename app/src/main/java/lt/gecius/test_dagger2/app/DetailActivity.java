@@ -10,13 +10,13 @@ import javax.inject.Named;
 
 import lt.gecius.test_dagger2.R;
 import lt.gecius.test_dagger2.di.ApplicationComponent;
-import lt.gecius.test_dagger2.di.subcomponent.DaggerMySubcomponent;
-import lt.gecius.test_dagger2.di.subcomponent.MySubcomponentModule;
+import lt.gecius.test_dagger2.di.subcomponent.DaggerDependenciesComponent;
+import lt.gecius.test_dagger2.di.subcomponent.DependenciesModule;
 
 public class DetailActivity extends AppCompatActivity {
 
     @Inject
-    @Named(MySubcomponentModule.TAG)
+    @Named(DependenciesModule.TAG)
     String stringFromMySubcomponentModule;
 
     @Inject
@@ -31,7 +31,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void injectDependencies() {
         ApplicationComponent appComponent = ((DemoApplication) getApplication()).getComponent();
-        DaggerMySubcomponent.builder()
+        DaggerDependenciesComponent.builder()
                 .applicationComponent(appComponent)
                 .build().inject(this);
 

@@ -6,14 +6,14 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class MySubcomponentModule {
+public class DependenciesModule {
 
-    public static final String TAG = "MySubcomponentModule";
+    public static final String TAG = "DependenciesModule";
 
     @Provides
     @Named(TAG)
     String provideString() {
-        return "from MySubcomponentModule";
+        return "from DependenciesModule";
     }
 
 }
