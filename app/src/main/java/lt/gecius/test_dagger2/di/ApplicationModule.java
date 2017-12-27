@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -25,13 +24,13 @@ public class ApplicationModule {
 	}
 
 	@Provides
-	@Singleton
+//	@Singleton
 	SharedPreferences provideSharedPrefs() {
 		return PreferenceManager.getDefaultSharedPreferences(application);
 	}
 
 	@Provides
-	@Singleton
+//	@Singleton
     @Named(APP_MSG)
     Message providesString(MyDependency myDependency) {
 		return new Message("Injected string: APP_MSG", myDependency);
