@@ -1,4 +1,4 @@
-package lt.gecius.test_dagger2.mainactivity;
+package lt.gecius.test_dagger2.di;
 
 import android.app.Activity;
 
@@ -16,7 +16,7 @@ public class ActivityModule {
     public static final String ACTIVITY_MSG = "ACTIVITY_MSG";
     private final Activity activity;
 
-    ActivityModule(final Activity activity) {
+    public ActivityModule(final Activity activity) {
         this.activity = activity;
     }
 

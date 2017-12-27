@@ -1,4 +1,4 @@
-package lt.gecius.test_dagger2.mainactivity;
+package lt.gecius.test_dagger2.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,10 +12,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import lt.gecius.test_dagger2.R;
-import lt.gecius.test_dagger2.app.ApplicationComponent;
-import lt.gecius.test_dagger2.app.ApplicationModule;
-import lt.gecius.test_dagger2.app.DemoApplication;
-import lt.gecius.test_dagger2.app.Message;
+import lt.gecius.test_dagger2.di.ActivityComponent;
+import lt.gecius.test_dagger2.di.ActivityModule;
+import lt.gecius.test_dagger2.di.ApplicationComponent;
+import lt.gecius.test_dagger2.di.ApplicationModule;
 import lt.gecius.test_dagger2.services.MyIntentService;
 
 

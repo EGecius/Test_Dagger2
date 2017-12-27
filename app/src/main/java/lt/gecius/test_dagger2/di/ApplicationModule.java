@@ -1,4 +1,4 @@
-package lt.gecius.test_dagger2.app;
+package lt.gecius.test_dagger2.di;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -9,6 +9,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import lt.gecius.test_dagger2.app.Message;
+import lt.gecius.test_dagger2.app.MyDependency;
+import lt.gecius.test_dagger2.app.ProvidesAnnotatedDependency;
 
 @Module
 public class ApplicationModule {
@@ -17,7 +20,7 @@ public class ApplicationModule {
 
     private Application application;
 
-	ApplicationModule(Application application) {
+	public ApplicationModule(Application application) {
 		this.application = application;
 	}
 
@@ -30,7 +33,7 @@ public class ApplicationModule {
 	@Provides
 	@Singleton
     @Named(APP_MSG)
-	Message providesString(MyDependency myDependency) {
+    Message providesString(MyDependency myDependency) {
 		return new Message("Injected string: APP_MSG", myDependency);
 	}
 

@@ -1,4 +1,4 @@
-package lt.gecius.test_dagger2.mainactivity;
+package lt.gecius.test_dagger2.di;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,6 +1,6 @@
 package lt.gecius.test_dagger2.services;
 
-import static lt.gecius.test_dagger2.app.ApplicationModule.APP_MSG;
+import static lt.gecius.test_dagger2.di.ApplicationModule.APP_MSG;
 
 import android.app.IntentService;
 import android.content.Intent;

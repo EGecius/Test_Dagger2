@@ -1,12 +1,11 @@
-package lt.gecius.test_dagger2.app;
+package lt.gecius.test_dagger2.di;
 
 import android.content.SharedPreferences;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import lt.gecius.test_dagger2.mainactivity.ActivityComponent;
-import lt.gecius.test_dagger2.mainactivity.ActivityModule;
+import lt.gecius.test_dagger2.app.DemoApplication;
 import lt.gecius.test_dagger2.services.MyIntentService;
 
 @Singleton  // Constraints this component to one-per-application or unscoped bindings.
