@@ -28,7 +28,7 @@ public class MyIntentService extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         injectDependencies();
-        print();
+//        print();
     }
 
     private void print() {
