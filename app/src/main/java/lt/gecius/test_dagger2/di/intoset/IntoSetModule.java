@@ -10,6 +10,9 @@ import lt.gecius.test_dagger2.di.IntoSetInterface;
 @Module
 public class IntoSetModule {
 
+    /* Using @IntoSet tells tagger to add all implementations of the same type into a Set<T> and
+    inject it when required. */
+
     @Provides
     @IntoSet
     IntoSetInterface providesIntoSetInterface1() {
