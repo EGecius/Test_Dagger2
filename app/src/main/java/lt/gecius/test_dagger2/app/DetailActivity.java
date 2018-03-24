@@ -21,6 +21,10 @@ public class DetailActivity extends AppCompatActivity {
     String stringFromMySubcomponentModule;
 
     @Inject
+    @Named(DependenciesModule.TAG_2)
+    String stringFromMySubcomponentModule2;
+
+    @Inject
     SharedPreferences mSharedPreferences;
     /* You can also request Provider for same dependency, without declaring another Provides
     method for it*/
@@ -45,10 +49,14 @@ public class DetailActivity extends AppCompatActivity {
 
     private void printDependencies() {
 
-        Log.i("Eg:DetailActivity:48", "printDependencies stringFromMySubcomponentModule " + stringFromMySubcomponentModule);
+        Log.d("Eg:DetailActivity:48", "printDependencies stringFromMySubcomponentModule " +
+                stringFromMySubcomponentModule);
+        Log.d("Eg:DetailActivity:53", "printDependencies stringFromMySubcomponentModule2 " +
+                stringFromMySubcomponentModule2);
 
-        Log.i("Eg:DetailActivity:41", "injectDependencies mSharedPreferences " + mSharedPreferences);
-        SharedPreferences sharedPreferencesFromProvider = mSharedPreferencesProvider.get();
-        Log.i("Eg:DetailActivity:46", "injectDependencies sharedPreferencesFromProvider " + sharedPreferencesFromProvider);
+
+//        Log.i("Eg:DetailActivity:41", "injectDependencies mSharedPreferences " + mSharedPreferences);
+//        SharedPreferences sharedPreferencesFromProvider = mSharedPreferencesProvider.get();
+//        Log.i("Eg:DetailActivity:46", "injectDependencies sharedPreferencesFromProvider " + sharedPreferencesFromProvider);
     }
 }
