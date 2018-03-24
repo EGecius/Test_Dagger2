@@ -6,16 +6,10 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class DependenciesModule {
+public class DependenciesModule extends DependenciesModuleParent {
 
     public static final String TAG_1 = "DependenciesModule";
     public static final String TAG_2 = "DependenciesModule_2";
-
-    @Provides
-    @Named(TAG_1)
-    String provideStringTag1() {
-        return "from DependenciesModule - TAG_1";
-    }
 
     @Provides
     @Named(TAG_2)
