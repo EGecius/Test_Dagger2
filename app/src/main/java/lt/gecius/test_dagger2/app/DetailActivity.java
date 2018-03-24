@@ -44,6 +44,9 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void printDependencies() {
+
+        Log.i("Eg:DetailActivity:48", "printDependencies stringFromMySubcomponentModule " + stringFromMySubcomponentModule);
+
         Log.i("Eg:DetailActivity:41", "injectDependencies mSharedPreferences " + mSharedPreferences);
         SharedPreferences sharedPreferencesFromProvider = mSharedPreferencesProvider.get();
         Log.i("Eg:DetailActivity:46", "injectDependencies sharedPreferencesFromProvider " + sharedPreferencesFromProvider);
