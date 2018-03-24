@@ -17,7 +17,7 @@ import lt.gecius.test_dagger2.di.subcomponent.DependenciesModule;
 public class DetailActivity extends AppCompatActivity {
 
     @Inject
-    @Named(DependenciesModule.TAG)
+    @Named(DependenciesModule.TAG_1)
     String stringFromMySubcomponentModule;
 
     @Inject

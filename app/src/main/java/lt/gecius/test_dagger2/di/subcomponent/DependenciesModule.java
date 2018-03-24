@@ -8,12 +8,19 @@ import dagger.Provides;
 @Module
 public class DependenciesModule {
 
-    public static final String TAG = "DependenciesModule";
+    public static final String TAG_1 = "DependenciesModule";
+    public static final String TAG_2 = "DependenciesModule_2";
 
     @Provides
-    @Named(TAG)
-    String provideString() {
-        return "from DependenciesModule";
+    @Named(TAG_1)
+    String provideStringTag1() {
+        return "from DependenciesModule - TAG_1";
+    }
+
+    @Provides
+    @Named(TAG_2)
+    String provideStringTag2() {
+        return "from DependenciesModule - TAG_2";
     }
 
 }
