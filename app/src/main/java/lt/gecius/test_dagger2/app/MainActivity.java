@@ -88,12 +88,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setTextViews() {
-        mTextViewAppStringName.setText(appMessage.stringMsg);
+        mTextViewAppStringName.setText(appMessage.getStringMsg());
 
         String hashCodeAppString = String.valueOf(appMessage.hashCode());
         mTextViewAppStringHashcode.setText(hashCodeAppString);
 
-        mTextViewActivityStringName.setText(activityMessage.stringMsg);
+        mTextViewActivityStringName.setText(activityMessage.getStringMsg());
 
         String hashCodeActivityString = String.valueOf(activityMessage.hashCode());
         mTextViewActivityStringHashcode.setText(hashCodeActivityString);
